@@ -13,10 +13,7 @@
 // 
 // }parallel_unit;
 
-// il massimo (?)
-// #define TEST_NUM 39923
-
-#define TEST_NUM 15
+#define NUM_THREADS 15
 
 void* funzione(void*arg){
     
@@ -30,23 +27,31 @@ void* funzione(void*arg){
 
 
 int main(void) {
-    int buffer[TEST_NUM];
-    for(size_t i=0;i<TEST_NUM;i++) buffer[i]=i;
 
-    parallel_unit pu = create_parallel_unit(TEST_NUM,funzione);
+    // We initialize a buffer with numbers that go from 0 to NUM_THREADS-1
+    int buffer[NUM_THREADS];
+    for(size_t i=0;i<NUM_THREADS;i++) buffer[i]=i;
 
+    // We create a parallel_unit by passing the number of threads that we want on this unit and a function to associate to the threads
+    parallel_unit pu = create_parallel_unit(NUM_THREADS,funzione);
+
+    // We use pu.args to pass out parameters to each thread
     for(size_t i=0;i<pu.num_threads;i++){
         pu.args[i] = &buffer[i];
     }
-
+    
+    // Now we can call execute_parallel_unit(...) by passing out parallel unit
+    // The main thread will wait until the execution of each thread has finished
     printf("--- first  execution ---\n");
     execute_parallel_unit(pu);
+    
+    // A parallel_unit acts as a Thread pool. We can execute it again without any thread creation overhead (but we won't have any return value)
     printf("--- second execution ---\n");
     execute_parallel_unit(pu);
     
+    // We destroy the parallel unit, this will deallocate all the memory used internally and destroy the semaphores
     destroy_parallel_unit(pu);
 
-    printf("Per vedere se non esplode tutto dopo la destroy\n");
 }
 
 // to compile, stay in the directory of this file and the run: 
