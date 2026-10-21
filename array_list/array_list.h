@@ -21,12 +21,6 @@ typedef struct{
 
 }int_al;
 
-typedef struct{
-    FILE** items;
-    size_t size;
-    size_t capacity;
-}FILE_al;
-
 #define append_al(list,element) \
     do{ \
         if(list.size >= list.capacity){ \
@@ -93,6 +87,11 @@ typedef struct{
         destination.capacity = list.capacity; \
         destination.items = realloc(destination.items, list.size*sizeof(*list.items)); \
         memcpy(destination.items,list.items,list.size*sizeof(*list.items)); \
+    }while(0);
+
+#define clean_al(list) \
+    do{ \
+        list.size = 0; \
     }while(0);
 
 #define free_al(list) \
