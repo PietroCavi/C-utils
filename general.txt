@@ -1,4 +1,5 @@
-This utils directory contains 3 utils, an array_list, a screen for the terminal and a parallel_unit for parallel execution.
+This utils directory contains 4 utils, an array_list, a screen for the terminal, a parallel_unit for parallel execution and a stopwatch utility for
+performance monitoring.
 
 Plans:
     [-] Add a brief documentation for every utils
