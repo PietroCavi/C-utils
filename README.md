@@ -8,7 +8,9 @@ This utils directory contains 5 utils:
 
 ## Plans:
 
-[x] Add a small example for each utils
-[-] Add a brief documentation for every utils
-[-] Expand this file for a more thorough description
+&nbsp;&nbsp;&nbsp;&nbsp;[x] Add a small example for each utils
+
+&nbsp;&nbsp;&nbsp;&nbsp;[-] Add a brief documentation for every utils
+
+&nbsp;&nbsp;&nbsp;&nbsp;[-] Expand this file for a more thorough description
 
