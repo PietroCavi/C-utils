@@ -1,9 +1,0 @@
-This utils directory contains 4 utils, an array_list, a screen for the terminal, a parallel_unit for parallel execution, a stopwatch utility
-for performance monitoring and a very unsafe polling library.
-
-Plans:
-    [-] Add a brief documentation for every utils
-    [-] Add a small example for each utils
-    [-] Expand this file for a more thorough description
-    [-] Turn this file into a README.md
-    [-] Upload this whole dir to github
