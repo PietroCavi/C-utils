@@ -3,7 +3,42 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
+//--- basic integer types ---//
+
+typedef struct{
+
+    char* items;
+    size_t size;
+    size_t capacity;
+
+}char_al;
+
+typedef struct{
+
+    short* items;
+    size_t size;
+    size_t capacity;
+
+}short_al;
+
+typedef struct{
+
+    int* items;
+    size_t size;
+    size_t capacity;
+
+}int_al;
+
+typedef struct{
+
+    long* items;
+    size_t size;
+    size_t capacity;
+
+}long_al;
+
+//--- basic float types ---//
 
 typedef struct{
 
@@ -15,11 +50,13 @@ typedef struct{
 
 typedef struct{
 
-    int* items;
+    double* items;
     size_t size;
     size_t capacity;
 
-}int_al;
+}double_al;
+
+//--- functions ---//
 
 #define append_al(list,element) \
     do{ \
@@ -79,14 +116,6 @@ typedef struct{
     do{ \
         list.items = realloc(list.items,list.size*sizeof(*list.items)); \
         list.capacity = list.size; \
-    }while(0);
-
-#define clone_al(list,destination) \
-    do{ \
-        destination.size = list.size; \
-        destination.capacity = list.capacity; \
-        destination.items = realloc(destination.items, list.size*sizeof(*list.items)); \
-        memcpy(destination.items,list.items,list.size*sizeof(*list.items)); \
     }while(0);
 
 #define clean_al(list) \
