@@ -14,7 +14,8 @@ int to_measure(){
 }
 
 int main(){
-    
+    printf("Timerino Section:\n");
+
     // starting the timer
     start_timerino();
   
@@ -31,7 +32,32 @@ int main(){
     printf("Millisecondi: %.2fms\n", get_timerino("ms") );
     printf("Microsecondi: %.2fus\n", get_timerino("us") );
     printf("Nanosecondi:  %.2fns\n", get_timerino("ns") );
+    
+    printf("\n");
+    
+    printf("Timerone Section:\n");
 
+    // creating a timerone
+    timerone t = {0};
+    
+    // starting the timerone
+    start_timerone(&t);
+  
+    acc = to_measure();
+
+    // stopping the timer
+    stop_timerone(&t);
+    
+    // this is just to trick the compiler into not optimizing too much
+    compiler = 0; compiler += acc;
+
+    // we can use get_timerino with a format to get the time in the unit that we want
+    printf("Secondi:      %.2fs\n",  get_timerone(&t, "s")  );
+    printf("Millisecondi: %.2fms\n", get_timerone(&t, "ms") );
+    printf("Microsecondi: %.2fus\n", get_timerone(&t, "us") );
+    printf("Nanosecondi:  %.2fns\n", get_timerone(&t, "ns") );
+    
+    printf("\n");
 }
 
 // to compile, stay in the directory of this file and the run: 
