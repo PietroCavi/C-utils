@@ -14,3 +14,6 @@ This utils directory contains 5 utils:
 
 &nbsp;&nbsp;&nbsp;&nbsp;[-] Expand this file for a more thorough description
 
+**TODO**:
+
+Timerino extension for multithreading
