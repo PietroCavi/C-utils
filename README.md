@@ -6,10 +6,13 @@ This utils directory contains 5 utils:
 4. **`timerino.h`**: a stopwatch utility to measure execution times
 5. **`polly.h`**: an extremely primitive way of polling keyboard inputs on the terminal (it's basically a system wide key logger)
 
-## Plans:
+These utils aim to take away the little inconveniences that you can usually encounter while writing C code, they usually lack security controls and personally I would not consider them "safe", they are aimed at personal projects where code safety is not a concern. While writing code like this usually apply a simple principle, which is: "If a malloc fails... you have bigger fishes to fry than handling the NULL pointer".
 
-&nbsp;&nbsp;&nbsp;&nbsp;[x] Add a small example for each utils
+Having said that I still of course check for memory leaks or unallocated semaphores, and the moment there aren't any.
+
+My only goal is to provide a simplest interface possible for things that should be simple by design!
+
+## Plans:
 
 &nbsp;&nbsp;&nbsp;&nbsp;[-] Add a brief documentation for every utils
 
-&nbsp;&nbsp;&nbsp;&nbsp;[-] Expand this file for a more thorough description
